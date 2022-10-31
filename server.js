@@ -1,10 +1,14 @@
 const express = require('express');
 const { default: mongoose } = require('mongoose');
 const dotenv = require('dotenv').config()
+const cors = require('cors')
+
 const port =process.env.PORT || 5000;
 const {errorHandler} = require('./Middleware/errorMiddleware')
 
 const app= express();
+
+app.use(cors())
 
 mongoose.connect('mongodb://localhost:27017/goalDB',{
     useNewUrlParser:true,
